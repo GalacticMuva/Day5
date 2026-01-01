@@ -19,8 +19,11 @@ async function fetchGitHubData() {
         // Render repo names using innerHTML
         const repoList = document.getElementById('repo-list');
         repoList.innerHTML = repos.map(repo => 
-            `<li class="list-group-item">${repo.name}</li>`
-        ).join('');
+    `<li class="list-group-item d-flex justify-content-between align-items-center">
+        ${repo.name}
+        <a href="${repo.html_url}" target="_blank" class="btn btn-sm btn-outline-primary">View</a>
+    </li>`
+).join('');
 
     } catch (error) {
         console.error("Error fetching GitHub data:", error);
